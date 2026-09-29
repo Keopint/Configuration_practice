@@ -1,0 +1,7 @@
+ls
+ls -la
+cd /home/user
+cd "my documents"
+ls "folder with spaces"
+unknown_command
+ls
