@@ -15,7 +15,6 @@ if hasattr(sys.stdout, "reconfigure"):
 # ============================================================
 
 class VirtualFileSystem:
-    """Виртуальная файловая система, загружаемая из директории на диске."""
 
     def __init__(self, root_path: str = None):
         self.root_path = root_path
@@ -122,7 +121,6 @@ class EmulatorConfig:
 
 
 class EmulatorState:
-    """Хранит состояние сессии: время старта и историю команд."""
 
     def __init__(self):
         self.start_time = time.time()
@@ -152,7 +150,6 @@ def parse_command(line: str) -> list:
 # ============================================================
 
 def cmd_ls(args: list, vfs: VirtualFileSystem, state: EmulatorState) -> bool:
-    """ls [-l] [-a] [путь] — список содержимого директории."""
     show_all = False
     long_format = False
     path = None
@@ -218,7 +215,6 @@ def cmd_ls(args: list, vfs: VirtualFileSystem, state: EmulatorState) -> bool:
 
 
 def cmd_cd(args: list, vfs: VirtualFileSystem, state: EmulatorState) -> bool:
-    """cd [путь] — смена текущей директории."""
     if len(args) > 1:
         print("cd: слишком много аргументов")
         return False
@@ -239,13 +235,11 @@ def cmd_cd(args: list, vfs: VirtualFileSystem, state: EmulatorState) -> bool:
 
 
 def cmd_echo(args: list, vfs: VirtualFileSystem, state: EmulatorState) -> bool:
-    """echo [аргументы] — печатает аргументы через пробел."""
     print(" ".join(args))
     return True
 
 
 def cmd_head(args: list, vfs: VirtualFileSystem, state: EmulatorState) -> bool:
-    """head [-n N] файл — вывод первых N строк файла (по умолчанию 10)."""
     n = 10
     path = None
     i = 0
